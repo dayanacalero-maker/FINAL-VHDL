@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="top_PF">
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_PF|memory_system:u_mem|ram_PF:u_ram|altsyncram:RW_rtl_0" CBX_FILE_NAME="altsyncram_8bi1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
