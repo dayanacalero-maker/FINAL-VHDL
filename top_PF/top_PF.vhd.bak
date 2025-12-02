@@ -1,0 +1,117 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity top_PF is
+    port(
+        CLOCK_50 : in  std_logic;
+        SW       : in  std_logic_vector(15 downto 0);
+        KEY      : in  std_logic_vector(1 downto 0);
+
+        HEX0     : out std_logic_vector(6 downto 0);
+        HEX1     : out std_logic_vector(6 downto 0);
+        HEX2     : out std_logic_vector(6 downto 0);
+        HEX3     : out std_logic_vector(6 downto 0)
+    );
+end entity top_PF;
+
+architecture arch_top_PF of top_PF is
+
+    --------------------------------------------------------------------
+    -- Componentes
+    --------------------------------------------------------------------
+
+    component room_PF
+        port(
+            clock    : in  std_logic;
+            address  : in  std_logic_vector(7 downto 0);
+            data_out : out std_logic_vector(7 downto 0)
+        );
+    end component;
+
+    component ram_PF
+        port(
+            clock     : in  std_logic;
+            write_en  : in  std_logic;
+            address   : in  std_logic_vector(7 downto 0);
+            data_in   : in  std_logic_vector(7 downto 0);
+            data_out  : out std_logic_vector(7 downto 0)
+        );
+    end component;
+
+    component h16
+        port(
+            data_in : in  std_logic_vector(7 downto 0);
+            seg_hi  : out std_logic_vector(6 downto 0);
+            seg_lo  : out std_logic_vector(6 downto 0)
+        );
+    end component;
+
+    --------------------------------------------------------------------
+    -- Señales internas
+    --------------------------------------------------------------------
+    signal address      : std_logic_vector(7 downto 0);
+    signal data_in      : std_logic_vector(7 downto 0);
+    signal rom_out      : std_logic_vector(7 downto 0);
+    signal ram_out      : std_logic_vector(7 downto 0);
+    signal data_sel     : std_logic_vector(7 downto 0);
+    signal write_en     : std_logic;
+
+begin
+
+    --------------------------------------------------------------------
+    -- Mapeo de entradas desde switches
+    --------------------------------------------------------------------
+    address  <= SW(7 downto 0);     -- dirección
+    data_in  <= SW(15 downto 8);    -- dato a escribir
+    write_en <= not KEY(1);         -- pulsador activo en 0
+
+    --------------------------------------------------------------------
+    -- Instancias de ROM y RAM
+    --------------------------------------------------------------------
+    ROM0 : room_PF
+        port map(
+            clock    => CLOCK_50,
+            address  => address,
+            data_out => rom_out
+        );
+
+    RAM0 : ram_PF
+        port map(
+            clock     => CLOCK_50,
+            write_en  => write_en,
+            address   => address,
+            data_in   => data_in,
+            data_out  => ram_out
+        );
+
+    --------------------------------------------------------------------
+    -- Multiplexor: decide si usar ROM o RAM
+    -- Direcciones 0–127 → ROM
+    -- Direcciones 128–255 → RAM
+    --------------------------------------------------------------------
+    with address(7) select
+        data_sel <= rom_out when '0',
+                    ram_out when '1';
+
+    --------------------------------------------------------------------
+    -- Displays superiores: dirección actual
+    --------------------------------------------------------------------
+    H16_ADDR : h16
+        port map(
+            data_in => address,
+            seg_hi  => HEX3,     -- nibble alto dirección
+            seg_lo  => HEX2      -- nibble bajo dirección
+        );
+
+    --------------------------------------------------------------------
+    -- Displays inferiores: dato leído desde ROM/RAM
+    --------------------------------------------------------------------
+    H16_DATA : h16
+        port map(
+            data_in => data_sel,
+            seg_hi  => HEX1,     -- nibble alto dato
+            seg_lo  => HEX0      -- nibble bajo dato
+        );
+
+end architecture arch_top_PF;
