@@ -1,0 +1,165 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.1\quartus\VHDL\Angeles\FINAL\ALU\simulation\qsim
+vALU
+Z1 !s100 B9fU86=kmOU=UaO;U<M^@0
+Z2 I_LXRaUaag9SzRB4:K[K251
+Z3 VDb^9_]5Fe8zZMJ2O7k2Ne3
+Z4 dC:\altera\13.1\quartus\VHDL\Angeles\FINAL\ALU\simulation\qsim
+Z5 w1763567136
+Z6 8ALU.vo
+Z7 FALU.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|ALU.vo|
+Z10 o-work work -O0
+Z11 n@a@l@u
+Z12 !s108 1763567138.153000
+Z13 !s107 ALU.vo|
+!i10b 1
+!s85 0
+!s101 -O0
+vALU_vlg_check_tst
+Z14 !s100 BFAj1^L[g_`e3Zi]ln7YT2
+Z15 If_jiRC5:=`]`GPiIYVg2D0
+Z16 VjQdXMOcHzhnnjJn3ijG]I2
+R4
+Z17 w1763567135
+Z18 8Waveform.vwf.vt
+Z19 FWaveform.vwf.vt
+L0 61
+R8
+r1
+31
+Z20 !s108 1763567138.285000
+Z21 !s107 Waveform.vwf.vt|
+Z22 !s90 -work|work|Waveform.vwf.vt|
+R10
+Z23 n@a@l@u_vlg_check_tst
+!i10b 1
+!s85 0
+!s101 -O0
+vALU_vlg_sample_tst
+Z24 !s100 U@VO:`Q_R4`2<TGQSZgYj1
+Z25 I>8DQfa8RzRWGIhbe[?j?42
+Z26 Vb8@02RFbADSo90KM4coGZ1
+R4
+R17
+R18
+R19
+L0 29
+R8
+r1
+31
+R20
+R21
+R22
+R10
+Z27 n@a@l@u_vlg_sample_tst
+!i10b 1
+!s85 0
+!s101 -O0
+vALU_vlg_vec_tst
+Z28 I@i_f:KD7N0`T7jj=2j>?g0
+Z29 V>bFnnU[^IecCM5^<l3;]W0
+R4
+R17
+R18
+R19
+Z30 L0 361
+R8
+r1
+31
+R20
+R21
+R22
+R10
+Z31 n@a@l@u_vlg_vec_tst
+Z32 !s100 1;8lU5jC3P`<?^8bRRcbc0
+!i10b 1
+!s85 0
+!s101 -O0
+vTOP_ALU
+Z33 InBGZ;1iT9ciJYm[V9G`3i3
+Z34 VUj7mDUQL_QOIJ7z3RETG22
+R4
+Z35 w1764795377
+R6
+R7
+L0 31
+R8
+r1
+31
+R9
+R10
+Z36 n@t@o@p_@a@l@u
+!i10b 1
+Z37 !s100 FeS<VNCEIl87Ji9dL`H822
+!s85 0
+Z38 !s108 1764795381.315000
+R13
+!s101 -O0
+vTOP_ALU_vlg_check_tst
+!i10b 1
+!s100 D1oJLCA6:MSNK;;R:]GEk2
+IR2gD2[;4@M?HQIn<8OU]B2
+VCd8b<GnCRkkXjEhQ4C7R52
+R4
+Z39 w1764795375
+R18
+R19
+L0 59
+R8
+r1
+!s85 0
+31
+Z40 !s108 1764795381.662000
+Z41 !s107 Waveform.vwf.vt|
+R22
+!s101 -O0
+R10
+n@t@o@p_@a@l@u_vlg_check_tst
+vTOP_ALU_vlg_sample_tst
+!i10b 1
+!s100 hj[C^:3f[7LU[K:=2Na;i2
+IMD0]=<M_E@HSV;O4eLB4a3
+VccQi8Eoi6eJ]Wi3ULY:iF0
+R4
+R39
+R18
+R19
+L0 29
+R8
+r1
+!s85 0
+31
+R40
+R41
+R22
+!s101 -O0
+R10
+n@t@o@p_@a@l@u_vlg_sample_tst
+vTOP_ALU_vlg_vec_tst
+!i10b 1
+!s100 @J<P2MJB`5<IP>S;kWlzX3
+I]czCaUUY0^JG216S??jl=0
+V9Bjj9hCZSfNhR=G^JBZ2j2
+R4
+R39
+R18
+R19
+L0 227
+R8
+r1
+!s85 0
+31
+R40
+R41
+R22
+!s101 -O0
+R10
+n@t@o@p_@a@l@u_vlg_vec_tst
